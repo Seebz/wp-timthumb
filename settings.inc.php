@@ -127,7 +127,7 @@ $GLOBALS['TimThumb_Settings_Fields'] = array(
 	),
 	'FILE_CACHE_DIRECTORY' => array(
 		'section' => 'image_fetching',
-		'title'   => __('File cache prefix', 'wp-timthumb'),
+		'title'   => __('File cache directory', 'wp-timthumb'),
 		'desc'    => __('Directory where images are cached. Left blank it will use the system temporary directory (which is better for security)', 'wp-timthumb'),
 		'type'    => 'text',
 		'default' => '',
