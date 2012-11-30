@@ -44,7 +44,8 @@ function timthumb_downsize($image_downsize, $id, $size) {
 		return $image_downsize;
 	}
 
-	if (is_string($size) && preg_match('`^[0-9]+x[0-9]+$`i', $size) && ! array_key_exists($size, $_wp_additional_image_sizes))
+	$additional_image_sizes = (isset($_wp_additional_image_sizes) ? (array) $_wp_additional_image_sizes : array());
+	if ($additional_image_sizes && is_string($size) && preg_match('`^[0-9]+x[0-9]+$`i', $size) && ! array_key_exists($size, $additional_image_sizes))
 	{
 		$size = preg_split('`x`i', $size);
 	}
