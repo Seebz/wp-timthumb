@@ -45,7 +45,7 @@ function timthumb_downsize($image_downsize, $id, $size) {
 	}
 
 	$additional_image_sizes = (isset($_wp_additional_image_sizes) ? (array) $_wp_additional_image_sizes : array());
-	if (is_string($size) && preg_match('`^[0-9]+x[0-9]+$`i', $size)
+	if (is_string($size) && preg_match('`^([\?]|[0-9]+)x([\?]|[0-9]+)$`i', $size)
 		&& ( ! $additional_image_sizes || array_key_exists($size, $additional_image_sizes))
 	) {
 		$size = preg_split('`x`i', $size);
@@ -67,8 +67,8 @@ function timthumb_downsize($image_downsize, $id, $size) {
 			}
 		}
 
-		if ( $width <= $meta['width'] && $height <= $meta['height'] )
-		{
+		//if ( $width <= $meta['width'] && $height <= $meta['height'] )
+		//{
 			$absolute_img_url = preg_replace(
 					'`^https?://' . preg_quote($_SERVER['HTTP_HOST']) . '/`i',
 					'/',
@@ -82,7 +82,7 @@ function timthumb_downsize($image_downsize, $id, $size) {
 			$downsize = array( $timthumb_url, $width, $height, true );
 
 			return apply_filters('timthumb_downsize', $downsize, $image_downsize, $id, $size);
-		}
+		//}
 	}
 
 	return false;
