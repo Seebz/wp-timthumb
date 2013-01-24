@@ -3,7 +3,7 @@
  Plugin Name: TimThumb for WordPress
  Description: 
  Author:      Seebz
- Version:     1.0.beta5
+ Version:     1.0.beta6
  Author URI:  http://seebz.net/
  */
 
