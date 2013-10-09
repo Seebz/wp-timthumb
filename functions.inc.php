@@ -59,12 +59,15 @@ function timthumb_downsize($image_downsize, $id, $size) {
 		list( $width, $height ) = $size;
 		list( $width, $height ) = image_constrain_size_for_editor( $width, $height, $size );
 
-		foreach($meta['sizes'] as $size_name => $meta_size)
+		if ( ! empty($meta['sizes']))
 		{
-			if ($meta_size['width'] == $width && $meta_size['height'] == $height)
+			foreach($meta['sizes'] as $size_name => $meta_size)
 			{
-				// Size est une taille d'image gérée par WordPress
-				return false;
+				if ($meta_size['width'] == $width && $meta_size['height'] == $height)
+				{
+					// Size est une taille d'image gérée par WordPress
+					return false;
+				}
 			}
 		}
 

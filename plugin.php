@@ -3,7 +3,7 @@
  Plugin Name: TimThumb for WordPress
  Description: 
  Author:      Seebz
- Version:     1.0.beta6
+ Version:     1.0.beta7
  Author URI:  http://seebz.net/
  */
 
@@ -26,12 +26,12 @@ if (defined('TIMTHUMB_URL')) return;
  * TimThumb constants
  */
 
-define('TIMTHUMB_VERSION',  '2.8.10');
+define('TIMTHUMB_VERSION',  '2.8.13');
 
 define('TIMTHUMB_FILENAME', 'thumb.php');
 define('TIMTHUMB_BASE_DIR', dirname(__FILE__));
-define('TIMTHUMB_BASE_URL', preg_replace('`^'.preg_quote(WP_CONTENT_DIR).'`', WP_CONTENT_URL, TIMTHUMB_BASE_DIR) );
-define('TIMTHUMB_URL',      trailingslashit(TIMTHUMB_BASE_URL) . TIMTHUMB_FILENAME);
+define('TIMTHUMB_BASE_URL', preg_replace('`^'.preg_quote(realpath(WP_CONTENT_DIR)).'`', WP_CONTENT_URL, TIMTHUMB_BASE_DIR) );
+define('TIMTHUMB_URL',      str_replace('\\', '/', trailingslashit(TIMTHUMB_BASE_URL) . TIMTHUMB_FILENAME));
 
 
 
