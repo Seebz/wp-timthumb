@@ -3,7 +3,7 @@
  Plugin Name: TimThumb for WordPress
  Description: 
  Author:      Seebz
- Version:     1.0.beta7
+ Version:     1.0.beta8
  Author URI:  http://seebz.net/
  */
 
@@ -50,8 +50,12 @@ require dirname(__FILE__) . '/settings.inc.php';
 require dirname(__FILE__) . '/functions.inc.php';
 
 
-// Support de timthumb par la fonction wp_get_attachment_image()
-add_filter( 'image_downsize', 'timthumb_downsize', 10, 3);
+if (! is_admin())
+{
+	// Support de timthumb par la fonction wp_get_attachment_image()
+	add_filter( 'image_downsize', 'timthumb_downsize', 10, 3);
+}
+
 
 
 

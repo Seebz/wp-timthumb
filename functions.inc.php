@@ -59,6 +59,9 @@ function timthumb_downsize($image_downsize, $id, $size) {
 		list( $width, $height ) = $size;
 		list( $width, $height ) = image_constrain_size_for_editor( $width, $height, $size );
 
+		if ($size[0] === '?') $width  = null;
+		if ($size[1] === '?') $height = null;
+
 		if ( ! empty($meta['sizes']))
 		{
 			foreach($meta['sizes'] as $size_name => $meta_size)
