@@ -99,6 +99,8 @@ function timthumb_downsize($image_downsize, $id, $size) {
 // Fonction de chargement de l'API WordPress
 function timthumb_load_wp()
 {
+	global $wpdb;
+
 	// wp-load.php génère parfois une erreur
 	ob_start();
 
